@@ -19,12 +19,11 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '16.x'
 
       - name: npm install, build, and test
         run: |
           npm install
-          working-directory: /home/runner/work/car-rental-application-and-web-service-public/car-rental-application-and-web-service-public/
           npm run build --if-present
           npm run test --if-present
 
@@ -51,10 +50,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
-  
-      - name: List files in the project directory
-        run: ls -la /home/runner/work/car-rental-application-and-web-service-public/car-rental-application-and-web-service-public/
-
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
@@ -62,9 +57,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_95A2A1FCC76347DC81E6AB78C7A6ADDB }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_81EDF0BB87CD4503B1491995DDD7505A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C0653C78769E4892BFE7DBFE8E94A72E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_07367A177E654B18B2E16C8A4A271C1D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_24FE9670A5184A01B8593E176775F6C5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0F40DB61F12C458CA173024F0F37121B }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp

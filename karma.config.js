@@ -22,6 +22,9 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
+	// existing configuration options
+    browsers: ['ChromeHeadless'],  // Use 'ChromeHeadless' instead of 'Chrome'
+ 
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

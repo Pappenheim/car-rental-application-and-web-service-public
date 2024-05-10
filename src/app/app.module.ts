@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/components/login/login.component';
@@ -14,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroModule } from "./NgZorroModule";
 import { LandingPageComponent } from './auth/components/landing-page/landing-page.component';
 import { ErrorPageComponent } from './auth/components/error-page/error-page.component';
-import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -36,10 +36,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NgZorroModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDvUBHsnQBGQFEJnCXegGWkfGJpY8hLKxQ'
-    })
+    NgZorroModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

@@ -25,6 +25,7 @@ jobs:
         run: |
           npm install
           npm install karma-chrome-launcher --save-dev
+          npm install react@latest react-dom@latest
           npm run build --if-present
           npm run test --if-present
 

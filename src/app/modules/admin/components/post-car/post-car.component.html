@@ -94,7 +94,11 @@
                             </nz-form-item>
                         </div>
                     </div>
-
+                  <div nz-col nzSpan="24" style="height: 300px;">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="setLocation($event)">
+                      <agm-marker [latitude]="lat" [longitude]="lng" [draggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+                    </agm-map>
+                  </div>
                     <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'"
                         (click)="postCar()">
                         Post Car

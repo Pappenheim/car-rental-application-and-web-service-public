@@ -21,6 +21,10 @@ export class PostCarComponent {
   listOfColor = ["Red", "White", "Blue", "Black", "Orange", "Grey", "Silver"];
   listOfTransmission = ["Manual", "Automatic"];
 
+  lat = 34.0522;
+  lng = -118.2437;
+  zoom = 8;
+
   constructor(private fb: FormBuilder,
     private adminService: AdminService,
     private router: Router,
@@ -36,7 +40,27 @@ export class PostCarComponent {
       price: [null, Validators.required],
       description: [null, Validators.required],
       year: [null, Validators.required],
+      latitude: [null, Validators.required],
+      longitude: [null, Validators.required]
     })
+  }
+
+  setLocation(event: any) {
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+    this.postCarForm.patchValue({
+      latitude: this.lat,
+      longitude: this.lng
+    });
+  }
+
+  markerDragEnd(event: any) {
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+    this.postCarForm.patchValue({
+      latitude: this.lat,
+      longitude: this.lng
+    });
   }
 
   postCar() {

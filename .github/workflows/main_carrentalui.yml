@@ -24,6 +24,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install --build-from-source
+          npm install -g @angular/cli
           npm install karma-chrome-launcher --save-dev
           npm install react@latest react-dom@latest
           npm install bootstrap

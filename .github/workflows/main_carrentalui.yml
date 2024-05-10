@@ -27,6 +27,7 @@ jobs:
           npm install karma-chrome-launcher --save-dev
           npm install react@latest react-dom@latest
           npm install bootstrap
+          npm install --build-from-source
           npm run build --if-present
           npm run test --if-present
 
